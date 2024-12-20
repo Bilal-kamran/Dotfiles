@@ -197,7 +197,7 @@ bindsym $mod+m move workspace to output left
 # Suspend
 bindsym $mod+Shift+period exec systemctl suspend
 
-exec --no-startup-id $HOME/Wallpapers/set_wallpaper.sh &
 exec --no-startup-id setxkbmap -model pc105 -layout us &
 exec --no-startup-id xrandr --output VGA-1 --auto --left-of eDP-1 &
+exec --no-startup-id $HOME/Wallpapers/set_wallpaper.sh &
 exec --no-startup-id picom --config $HOME/.config/i3/picom.conf &
