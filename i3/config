@@ -12,7 +12,8 @@
 #
 # Please see http://i3wm.org/docs/userguide.html for a complete reference!
 
-include $HOME/.config/i3/cattpuccin-mocha.conf
+#include $HOME/.config/i3/cattpuccin-mocha.conf
+include $HOME/.config/i3/dark-navy-blue.conf
 
 gaps inner 3
 gaps outer 3
