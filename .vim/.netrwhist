@@ -1,0 +1,12 @@
+let g:netrw_dirhistmax  =10
+let g:netrw_dirhistcnt =9
+let g:netrw_dirhist_9='/home/bilal_kamran/Nvim-Config'
+let g:netrw_dirhist_8='/home/bilal_kamran/Nvim-Config/lua'
+let g:netrw_dirhist_7='/home/bilal_kamran/Nvim-Config/lua/plugins'
+let g:netrw_dirhist_6='/home/bilal_kamran/Nvim-Config/lua'
+let g:netrw_dirhist_5='/home/bilal_kamran/Nvim-Config/lua/config'
+let g:netrw_dirhist_4='/home/bilal_kamran/Nvim-Config/lua'
+let g:netrw_dirhist_3='/home/bilal_kamran/Nvim-Config'
+let g:netrw_dirhist_2='/home/bilal_kamran/Nvim-Config/lua'
+let g:netrw_dirhist_1='/home/bilal_kamran/Nvim-Config'
+let g:netrw_dirhist_0='/home/bilal_kamran/Nvim-Config/lua'
