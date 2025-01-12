@@ -24,6 +24,10 @@ if [ -f /etc/bashrc ]; then
     . /etc/bashrc
 fi
 
+if [ -f ~/.inputrc ]; then
+    . ~/.inputrc
+fi
+
 # User specific environment
 if ! [[ "$PATH" =~ "$HOME/.local/bin:$HOME/bin:" ]]; then
     PATH="$HOME/.local/bin:$HOME/bin:$PATH"
@@ -70,6 +74,7 @@ alias ldir="ls -l | egrep '^d'"   # directories only
 alias lla='ls -Al'                # List and Hidden Files
 alias las='ls -A'                 # Hidden Files
 alias lls='ls -l'                 # List
+alias lsg="ls -A | grep -i"       # search anything
 
 alias cls="clear"
 
@@ -88,6 +93,8 @@ alias unbz2='tar -xvjf'
 alias ungz='tar -xvzf'
 
 alias f="find . | grep "
+
+alias src="source"
 
 # Functions copied from ChrisTitusTech
 extract() {
@@ -126,5 +133,4 @@ ftext() {
 }
 
 # Setting colors
-
-PS1='\033[35m\u\033[36m \W\033[0m\033[1m \$ \033[0m'
+PS1="\[\e[1m\]\[\e[36m\] \W > \[\e[00m\]"
