@@ -41,6 +41,18 @@ export NVM_DIR="$HOME/.nvm"
 # export LUA_PATH="/usr/share/lua/5.1/?.lua;;"
 # export LUA_CPATH="/usr/lib64/lua/5.1/?.so;;"
 
+# Setting up the editor
+export EDITOR="nvim"
+export VISUAL="nvim"
+
+alias nv="nvim"
+alias v="vim"
+alias n="nano"
+
+alias snv="sudo nvim"
+alias sv="sudo vim"
+alias sn="sudo nano"
+
 # Personal projects
 alias PR="cd $HOME/PROJECTS/PROGRAMMING_PROJECTS/"
 alias PR-C="cd $HOME/PROJECTS/PROGRAMMING_PROJECTS/C\ PROJECTS/"
@@ -92,11 +104,24 @@ alias untar='tar -xvf'
 alias unbz2='tar -xvjf'
 alias ungz='tar -xvzf'
 
-alias f="find . | grep "
+alias fdg="find . | grep "
 
 alias src="source"
 
-# Functions copied from ChrisTitusTech
+alias rm="rm -i"
+alias cp="cp -i"
+alias mv="mv -i"
+
+# Fuzzy finder aliases
+alias f="fzf"
+alias fn="fzf  | xargs nvim"
+alias fv="fzf  | xargs vim"
+alias fp="dpkg --get-selections | awk '{print $1}' | fzf"
+alias snf="snap list | fzf"
+alias hf="history | fzf"
+alias fnf="flatpak list | fzf"
+
+# Functions copied from ChrisTitusTech & also some of my own
 extract() {
 	for archive in "$@"; do
 		if [ -f "$archive" ]; then
@@ -130,6 +155,10 @@ ftext() {
 	# optional: -F treat search term as a literal, not a regular expression
 	# optional: -l only print filenames and not the matching lines ex. grep -irl "$1" *
 	grep -iIHrn --color=always "$1" . | less -r
+}
+
+cdl() {
+    builtin cd "$@" && ls
 }
 
 # Setting colors
