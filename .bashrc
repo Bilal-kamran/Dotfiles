@@ -53,6 +53,48 @@ alias snv="sudo nvim"
 alias sv="sudo vim"
 alias sn="sudo nano"
 
+
+# Update aliases
+if [[ -f /etc/os-release ]]; then
+    . /etc/os-release
+    OS=${ID:-unknown}
+elif [[ -f /usr/lib/os-release ]]; then
+    . /usr/lib/os-release
+    OS=${ID:-unknown}
+else
+    OS="unknown"
+fi
+
+# Define aliases based on detected OS
+case "$OS" in
+    arch)
+        alias sp="sudo pacman"
+        alias sps="sudo pacman -Ss"
+        alias spu="sudo pacman -Syu"
+        alias spi="sudo pacman -S"
+        ;;
+    ubuntu | debian)
+        alias sa="sudo apt"
+        alias sar="sudo apt autoremove"
+        alias sas="sudo apt search"
+        alias sau="sudo apt update && sudo apt upgrade -y"
+        alias sai="sudo apt install"
+        ;;
+    fedora)
+        alias sd="sudo dnf"
+        alias sdr="sudo dnf autoremove"
+        alias sds="sudo dnf search"
+        alias sdu="sudo dnf update && sudo dnf upgrade -y"
+        alias sdi="sudo dnf install"
+        ;;
+    unknown)
+        echo "Could not detect OS. No aliases applied."
+        ;;
+    *)
+        echo "OS '$OS' not recognized in script, add aliases manually."
+        ;;
+esac
+
 # Personal projects
 alias PR="cd $HOME/PROJECTS/PROGRAMMING_PROJECTS/"
 alias PR-C="cd $HOME/PROJECTS/PROGRAMMING_PROJECTS/C\ PROJECTS/"
