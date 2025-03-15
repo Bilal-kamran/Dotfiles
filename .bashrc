@@ -152,6 +152,7 @@ alias fdg="find . | grep "
 alias src="source"
 
 alias rm="rm -i"
+alias rmrf="rf -rfi"
 alias cp="cp -i"
 alias mv="mv -i"
 
