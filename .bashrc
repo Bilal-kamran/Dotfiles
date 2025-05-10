@@ -131,8 +131,6 @@ alias las='ls -A'                 # Hidden Files
 alias lls='ls -l'                 # List
 alias lsg="ls -A | grep -i"       # search anything
 
-alias cls="clear"
-
 alias home='cd ~'
 alias cd..='cd ..'
 alias ..='cd ..'

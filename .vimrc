@@ -1,6 +1,6 @@
 " settings section
 let mapleader = " "
-let localmapleader = " "
+let localmapleader = "\\"
 
 set number
 set relativenumber

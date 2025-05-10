@@ -211,6 +211,7 @@ bindsym $mod+Mod4+q exec --no-startup-id setxkbmap -model pc105 -layout us
 bindsym $mod+Mod4+d exec --no-startup-id setxkbmap -model pc105 -layout us -variant dvorak
 bindsym $mod+Mod4+p exec --no-startup-id setxkbmap -model pc105 -layout us -variant dvp
 
+exec --no-startup-id setxkbmap -model pc105 -layout us
 exec --no-startup-id xrandr --output VGA-1 --auto --left-of eDP-1 &
 exec --no-startup-id $HOME/Wallpapers/set_wallpaper.sh &
 exec --no-startup-id picom --config $HOME/.config/i3/picom.conf &
