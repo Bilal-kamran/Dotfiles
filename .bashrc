@@ -21,16 +21,16 @@ export LESS_TERMCAP_us=$'\E[01;32m'
 
 # Source global definitions
 if [ -f /etc/bashrc ]; then
-    . /etc/bashrc
+	. /etc/bashrc
 fi
 
 if [ -f ~/.inputrc ]; then
-    . ~/.inputrc
+	. ~/.inputrc
 fi
 
 # User specific environment
 if ! [[ "$PATH" =~ "$HOME/.local/bin:$HOME/bin:" ]]; then
-    PATH="$HOME/.local/bin:$HOME/bin:$PATH"
+	PATH="$HOME/.local/bin:$HOME/bin:$PATH"
 fi
 export PATH
 
@@ -45,10 +45,6 @@ export NVM_DIR="$HOME/.nvm"
 export EDITOR="nvim"
 export VISUAL="nvim"
 
-alias nv="nvim"
-alias v="vim"
-alias n="nano"
-
 alias snv="sudo nvim"
 alias sv="sudo vim"
 alias sn="sudo nano"
@@ -56,43 +52,43 @@ alias sn="sudo nano"
 
 # Update aliases
 if [[ -f /etc/os-release ]]; then
-    . /etc/os-release
-    OS=${ID:-unknown}
+	. /etc/os-release
+	OS=${ID:-unknown}
 elif [[ -f /usr/lib/os-release ]]; then
-    . /usr/lib/os-release
-    OS=${ID:-unknown}
+	. /usr/lib/os-release
+	OS=${ID:-unknown}
 else
-    OS="unknown"
+	OS="unknown"
 fi
 
 # Define aliases based on detected OS
 case "$OS" in
-    arch)
-        alias sp="sudo pacman"
-        alias sps="sudo pacman -Ss"
-        alias spu="sudo pacman -Syu"
-        alias spi="sudo pacman -S"
-        ;;
-    ubuntu | debian)
-        alias sa="sudo apt"
-        alias sar="sudo apt autoremove"
-        alias sas="sudo apt search"
-        alias sau="sudo apt update && sudo apt upgrade -y"
-        alias sai="sudo apt install"
-        ;;
-    fedora)
-        alias sd="sudo dnf"
-        alias sdr="sudo dnf autoremove"
-        alias sds="sudo dnf search"
-        alias sdu="sudo dnf update && sudo dnf upgrade -y"
-        alias sdi="sudo dnf install"
-        ;;
-    unknown)
-        echo "Could not detect OS. No aliases applied."
-        ;;
-    *)
-        echo "OS '$OS' not recognized in script, add aliases manually."
-        ;;
+	arch)
+		alias sp="sudo pacman"
+		alias sps="sudo pacman -Ss"
+		alias spu="sudo pacman -Syu"
+		alias spi="sudo pacman -S"
+		;;
+	ubuntu | debian)
+		alias sa="sudo apt"
+		alias sar="sudo apt autoremove"
+		alias sas="sudo apt search"
+		alias sau="sudo apt update && sudo apt upgrade -y"
+		alias sai="sudo apt install"
+		;;
+	fedora)
+		alias sd="sudo dnf"
+		alias sdr="sudo dnf autoremove"
+		alias sds="sudo dnf search"
+		alias sdu="sudo dnf update && sudo dnf upgrade -y"
+		alias sdi="sudo dnf install"
+		;;
+	unknown)
+		echo "Could not detect OS. No aliases applied."
+		;;
+	*)
+		echo "OS '$OS' not recognized in script, add aliases manually."
+		;;
 esac
 
 # Personal projects
@@ -104,8 +100,9 @@ alias PR-C_g="cd $HOME/PROJECTS/PROGRAMMING_PROJECTS/C\ PROJECTS/Small\ C\ Proje
 alias PR-L="cd $HOME/PROJECTS/PROGRAMMING_PROJECTS/LUA\ PROJECTS/"
 alias PR-L_l="cd $HOME/PROJECTS/PROGRAMMING_PROJECTS/LUA\ PROJECTS/LUA-LOVE2D/"
 alias PR-WD="cd $HOME/PROJECTS/PROGRAMMING_PROJECTS/WEB\ DEVELOPMENT/"
-alias PR-WD_p="cd $HOME/PROJECTS/PROGRAMMING_PROJECTS/WEB\ DEVELOPMENT/PORTFOLIO/"
-alias PR-WD_f="cd $HOME/PROJECTS/PROGRAMMING_PROJECTS/WEB\ DEVELOPMENT/FRONTEND/"
+alias PR-WD_mw="cd $HOME/PROJECTS/PROGRAMMING_PROJECTS/WEB\ DEVELOPMENT/My-Website/"
+alias PR-WD_pr="cd $HOME/PROJECTS/PROGRAMMING_PROJECTS/WEB\ DEVELOPMENT/web-dev-practice/"
+alias PR-WD_prf="cd $HOME/PROJECTS/PROGRAMMING_PROJECTS/WEB\ DEVELOPMENT/web-dev-practice/Frontend"
 alias PR-Asm="cd $HOME/PROJECTS/PROGRAMMING_PROJECTS/ASSEMBLY\ PROJECTS/"
 alias PR-AOC="cd $HOME/PROJECTS/PROGRAMMING_PROJECTS/ADVENT_OF_CODE/"
 alias PR-AOC_c="cd $HOME/PROJECTS/PROGRAMMING_PROJECTS/ADVENT_OF_CODE/C_Lang/"
@@ -129,7 +126,7 @@ alias ldir="ls -l | egrep '^d'"   # directories only
 alias lla='ls -Al'                # List and Hidden Files
 alias las='ls -A'                 # Hidden Files
 alias lls='ls -l'                 # List
-alias lsg="ls -A | grep -i"       # search anything
+alias lsg="ls -AFlh . | grep -i"       # search anything
 
 alias home='cd ~'
 alias cd..='cd ..'
@@ -168,18 +165,18 @@ extract() {
 	for archive in "$@"; do
 		if [ -f "$archive" ]; then
 			case $archive in
-			*.tar.bz2) tar xvjf $archive ;;
-			*.tar.gz) tar xvzf $archive ;;
-			*.bz2) bunzip2 $archive ;;
-			*.rar) rar x $archive ;;
-			*.gz) gunzip $archive ;;
-			*.tar) tar xvf $archive ;;
-			*.tbz2) tar xvjf $archive ;;
-			*.tgz) tar xvzf $archive ;;
-			*.zip) unzip $archive ;;
-			*.Z) uncompress $archive ;;
-			*.7z) 7z x $archive ;;
-			*) echo "don't know how to extract '$archive'..." ;;
+				*.tar.bz2) tar xvjf $archive ;;
+				*.tar.gz) tar xvzf $archive ;;
+				*.bz2) bunzip2 $archive ;;
+				*.rar) rar x $archive ;;
+				*.gz) gunzip $archive ;;
+				*.tar) tar xvf $archive ;;
+				*.tbz2) tar xvjf $archive ;;
+				*.tgz) tar xvzf $archive ;;
+				*.zip) unzip $archive ;;
+				*.Z) uncompress $archive ;;
+				*.7z) 7z x $archive ;;
+				*) echo "don't know how to extract '$archive'..." ;;
 			esac
 		else
 			echo "'$archive' is not a valid file!"
@@ -200,7 +197,11 @@ ftext() {
 }
 
 cdl() {
-    builtin cd "$@" && ls
+	builtin cd "$@" && ls
+}
+
+lg() {
+	ls -AFlh $1 | grep -i $2
 }
 
 # Setting colors
