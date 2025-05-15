@@ -1,0 +1,30 @@
+{
+    "editor.mouseWheelZoom": true,
+    "workbench.sideBar.location": "right",
+    "editor.fontFamily": "JetBrains Mono, Fira Code, Consolas, 'Courier New', monospace",
+    "editor.fontLigatures": true,
+    "editor.tabSize": 4,
+    "editor.insertSpaces": true,
+    "editor.cursorStyle": "block",
+    "editor.cursorBlinking": "solid",
+    "editor.minimap.enabled": false,
+    "editor.wordWrap": "on",
+    "editor.renderWhitespace": "all",
+    "editor.rulers": [
+        80
+    ],
+    "editor.formatOnSave": false,
+    "editor.lineNumbers": "relative",
+    "editor.scrollBeyondLastLine": false,
+    "editor.smoothScrolling": true,
+    "files.autoSave": "onFocusChange",
+    "files.trimTrailingWhitespace": true,
+    "terminal.integrated.fontFamily": "JetBrains Mono, Fira Code, Consolas, 'Courier New', monospace",
+    "terminal.integrated.cursorStyle": "block",
+    "terminal.integrated.smoothScrolling": true,
+    // Extensions
+    "extensions.ignoreRecommendations": false,
+    "workbench.startupEditor": "none",
+    "workbench.colorTheme": "Catppuccin Mocha",
+    "editor.guides.indentation": true
+}
