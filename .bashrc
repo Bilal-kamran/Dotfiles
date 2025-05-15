@@ -206,3 +206,5 @@ lg() {
 
 # Setting colors
 PS1="\[\e[1m\]\[\e[36m\] \W > \[\e[00m\]"
+
+bash $HOME/Splash-screen/main.sh
