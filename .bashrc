@@ -87,3 +87,7 @@ cdl() {
 
 # Setting colors
 PS1="\[\e[1m\]\[\e[36m\] \W > \[\e[00m\]"
+
+if [ -f ~/.bash_aliases ]; then
+	. $HOME/.bash_aliases
+fi
