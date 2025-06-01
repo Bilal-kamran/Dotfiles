@@ -13,6 +13,8 @@
 # Please see http://i3wm.org/docs/userguide.html for a complete reference!
 
 #include $HOME/.config/i3/cattpuccin-mocha.conf
+
+# This is for i3blocks make sure you have it installed
 include $HOME/.config/i3/dark-navy-blue.conf
 
 gaps inner 3
@@ -166,25 +168,32 @@ bindsym $mod+r mode "resize"
 # ------------------------------------------
 # CUSTOM KEYS START
 # ------------------------------------------
-exec --no-startup-id nm-applet
-
-bindsym $mod+Shift+s exec --no-startup-id $HOME/dotfiles/bin/monitor
-bindsym $mod+Shift+n exec --no-startup-id $HOME/dotfiles/bin/resolution
+exec --no-startup-id "nm-applet"
 
 # FKeys
+
 # Pulse Audio controls
-bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +5% #increase sound volume
-bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -5% #decrease sound volume
-bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle # mute sound
 
-bindsym $mod+Mod4+Up exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +5% #increase sound volume
-bindsym $mod+Mod4+Down exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -5% #decrease sound volume
-bindsym $mod+Mod4+equal exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle # mute sound
+#increase sound volume
+bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +5%
+#decrease sound volume
+bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -5%
+# mute sound
+bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle
 
-#
-# # Sreen brightness controls
-bindsym XF86MonBrightnessUp exec light -A 5 # increase screen brightness
-bindsym XF86MonBrightnessDown exec light -U 5 # decrease screen brightness
+#increase sound volume
+bindsym $mod+Mod4+Up exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +5%
+#decrease sound volume
+bindsym $mod+Mod4+Down exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -5%
+# mute sound
+bindsym $mod+Mod4+equal exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle
+
+# Sreen brightness controls
+
+# increase screen brightness
+bindsym XF86MonBrightnessUp exec light -A 5
+# decrease screen brightness
+bindsym XF86MonBrightnessDown exec light -U 5
 
 bindsym $mod+Mod4+Shift+Up exec light -s sysfs/backlight/intel_backlight -A 5
 bindsym $mod+Mod4+Shift+Down exec light -s sysfs/backlight/intel_backlight -U 5
@@ -198,14 +207,15 @@ bindsym $mod+m move workspace to output left
 # Suspend
 bindsym $mod+Shift+period exec systemctl suspend
 
-bindsym $mod+Mod4+q exec --no-startup-id setxkbmap -model pc105 -layout us
-bindsym $mod+Mod4+d exec --no-startup-id setxkbmap -model pc105 -layout us -variant dvorak
-bindsym $mod+Mod4+p exec --no-startup-id setxkbmap -model pc105 -layout us -variant dvp
+bindsym $mod+Mod4+q exec --no-startup-id "setxkbmap -model pc105 -layout us"
+bindsym $mod+Mod4+d exec --no-startup-id "setxkbmap -model pc105 -layout us -variant dvorak"
+bindsym $mod+Mod4+p exec --no-startup-id "setxkbmap -model pc105 -layout us -variant dvp"
 
-#exec --no-startup-id setxkbmap -model pc105 -layout us &
-#exec --no-startup-id setxkbmap -model pc105 -layout us -variant dvorak &
-exec --no-startup-id setxkbmap -model pc105 -layout us -variant dvp &
+# exec --no-startup-id xrandr --output VGA-1 --auto --left-of eDP-1 &
 
-exec --no-startup-id xrandr --output VGA-1 --auto --left-of eDP-1 &
-exec --no-startup-id $HOME/Wallpapers/set_wallpaper.sh &
-exec --no-startup-id picom --config $HOME/.config/i3/picom.conf &
+# exec --no-startup-id setxkbmap -model pc105 -layout us &
+# exec --no-startup-id setxkbmap -model pc105 -layout us -variant dvorak &
+
+exec --no-startup-id "$HOME/Wallpapers/set_wallpaper.sh"
+exec --no-startup-id "picom --config $HOME/.config/i3/picom.conf"
+exec --no-startup-id "setxkbmap -model pc105 -layout us -variant dvp"
