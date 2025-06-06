@@ -168,54 +168,57 @@ bindsym $mod+r mode "resize"
 # ------------------------------------------
 # CUSTOM KEYS START
 # ------------------------------------------
-exec --no-startup-id "nm-applet"
-
-# FKeys
 
 # Pulse Audio controls
 
-#increase sound volume
-bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +5%
-#decrease sound volume
-bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -5%
-# mute sound
-bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle
+# built in buttons
+bindsym XF86AudioRaiseVolume exec --no-startup-id "pactl set-sink-volume @DEFAULT_SINK@ +5%"
+bindsym XF86AudioLowerVolume exec --no-startup-id "pactl set-sink-volume @DEFAULT_SINK@ -5%"
+bindsym XF86AudioMute exec --no-startup-id "pactl set-sink-mute @DEFAULT_SINK@ toggle"
 
-#increase sound volume
-bindsym $mod+Mod4+Up exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +5%
-#decrease sound volume
-bindsym $mod+Mod4+Down exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -5%
-# mute sound
-bindsym $mod+Mod4+equal exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle
+# keybinds to control audio
+bindsym $mod+Mod4+Up exec --no-startup-id "pactl set-sink-volume @DEFAULT_SINK@ +5%"
+bindsym $mod+Mod4+Down exec --no-startup-id "pactl set-sink-volume @DEFAULT_SINK@ -5%"
+bindsym $mod+Mod4+equal exec --no-startup-id "pactl set-sink-mute @DEFAULT_SINK@ toggle"
 
 # Sreen brightness controls
 
-# increase screen brightness
-bindsym XF86MonBrightnessUp exec light -A 5
-# decrease screen brightness
-bindsym XF86MonBrightnessDown exec light -U 5
+# built in buttons to increase screen brightness
 
-bindsym $mod+Mod4+Shift+Up exec light -s sysfs/backlight/intel_backlight -A 5
-bindsym $mod+Mod4+Shift+Down exec light -s sysfs/backlight/intel_backlight -U 5
+# using brightnessctl
+bindsym XF86MonBrightnessUp exec "brightnessctl set +5%"
+bindsym XF86MonBrightnessDown exec "brightnessctl set 5%-"
 
-# Alsa audio controls.
-bindsym $mod+Shift+comma exec $HOME/.config/i3/scripts/alsa restore
-bindsym $mod+semicolon exec $HOME/.config/i3/scripts/alsa down Headphone
-bindsym $mod+comma exec $HOME/.config/i3/scripts/alsa up Headphone
+# keybinds to control keyboard backlight
+bindsym $mod+Mod4+Shift+Up exec "light -s sysfs/backlight/intel_backlight -A 5"
+bindsym $mod+Mod4+Shift+Down exec "light -s sysfs/backlight/intel_backlight -U 5"
+
+# Alsa audio controls -- I don't have any scripts for alsa right now
+bindsym $mod+Shift+comma exec "$HOME/.config/i3/scripts/alsa restore"
+bindsym $mod+semicolon exec "$HOME/.config/i3/scripts/alsa down Headphone"
+bindsym $mod+comma exec "$HOME/.config/i3/scripts/alsa up Headphone"
+
+# keybind to move the current workspace to second monitor
 bindsym $mod+m move workspace to output left
 
 # Suspend
-bindsym $mod+Shift+period exec systemctl suspend
+bindsym $mod+Shift+period exec "systemctl suspend"
 
+# Keybinds to change the keyboard layout if needed
 bindsym $mod+Mod4+q exec --no-startup-id "setxkbmap -model pc105 -layout us"
 bindsym $mod+Mod4+d exec --no-startup-id "setxkbmap -model pc105 -layout us -variant dvorak"
 bindsym $mod+Mod4+p exec --no-startup-id "setxkbmap -model pc105 -layout us -variant dvp"
 
+# keybind to change the wallpaper whenever needed
+bindsym $mod+Shift+w exec --no-startup-id "$HOME/Wallpapers/set_wallpaper.sh"
+
+# needed in order to correct the display of my second monitor
 # exec --no-startup-id xrandr --output VGA-1 --auto --left-of eDP-1 &
 
 # exec --no-startup-id setxkbmap -model pc105 -layout us &
 # exec --no-startup-id setxkbmap -model pc105 -layout us -variant dvorak &
 
+exec --no-startup-id "nm-applet"
 exec --no-startup-id "$HOME/Wallpapers/set_wallpaper.sh"
 exec --no-startup-id "picom --config $HOME/.config/i3/picom.conf"
 exec --no-startup-id "setxkbmap -model pc105 -layout us -variant dvp"
