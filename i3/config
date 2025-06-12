@@ -208,15 +208,14 @@ bindsym $mod+Shift+period exec "systemctl suspend"
 bindsym $mod+Mod4+q exec --no-startup-id "setxkbmap -model pc105 -layout us"
 bindsym $mod+Mod4+d exec --no-startup-id "setxkbmap -model pc105 -layout us -variant dvorak"
 bindsym $mod+Mod4+p exec --no-startup-id "setxkbmap -model pc105 -layout us -variant dvp"
+bindsym $mod+Mod4+u exec --no-startup-id "setxkbmap -model pc105 -layout ara"
+bindsym $mod+Mod4+a exec --no-startup-id "setxkbmap -model pc105 -layout pk"
 
 # keybind to change the wallpaper whenever needed
 bindsym $mod+Shift+w exec --no-startup-id "$HOME/Wallpapers/set_wallpaper.sh"
 
 # needed in order to correct the display of my second monitor
 # exec --no-startup-id xrandr --output VGA-1 --auto --left-of eDP-1 &
-
-# exec --no-startup-id setxkbmap -model pc105 -layout us &
-# exec --no-startup-id setxkbmap -model pc105 -layout us -variant dvorak &
 
 exec --no-startup-id "nm-applet"
 exec --no-startup-id "$HOME/Wallpapers/set_wallpaper.sh"
